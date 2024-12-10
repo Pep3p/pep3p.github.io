@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import WriteupCard from '../../components/htb/WriteupCard.astro';
+
+const writeups = [
+  {
+    title: "HackTheBox - Keeper",
+    difficulty: "Easy",
+    summary: "A Linux-based machine featuring ticket system exploitation and password cracking.",
+    date: "2024-01-15",
+    slug: "keeper"
+  },
+  {
+    title: "HackTheBox - Analytics",
+    difficulty: "Medium",
+    summary: "Web application exploitation focusing on authentication bypass and RCE.",
+    date: "2024-01-10",
+    slug: "analytics"
+  }
+];
+---
+
+<Layout title="HTB Write-ups">
+  <h1 class="text-3xl font-bold mb-8">Hack The Box Write-ups</h1>
+  
+  <div class="grid gap-6 md:grid-cols-2">
+    {writeups.map(writeup => (
+      <WriteupCard {...writeup} />
+    ))}
+  </div>
+</Layout>

@@ -1,0 +1,33 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogCard from '../../components/blog/BlogCard.astro';
+
+const posts = [
+  {
+    title: "Understanding OWASP Top 10",
+    excerpt: "A deep dive into the most critical web application security risks.",
+    date: "2024-01-20",
+    category: "Security",
+    slug: "owasp-top-10",
+    image: "/blog/owasp.jpg"
+  },
+  {
+    title: "Getting Started with Bug Bounty Hunting",
+    excerpt: "Essential tools and techniques for beginning bug bounty hunters.",
+    date: "2024-01-18",
+    category: "Bug Bounty",
+    slug: "bug-bounty-basics",
+    image: "/blog/bug-bounty.jpg"
+  }
+];
+---
+
+<Layout title="Blog">
+  <h1 class="text-3xl font-bold mb-8">Blog Posts</h1>
+  
+  <div class="grid gap-8 md:grid-cols-2">
+    {posts.map(post => (
+      <BlogCard {...post} />
+    ))}
+  </div>
+</Layout>

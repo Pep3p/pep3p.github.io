@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string;
+  difficulty: 'Easy' | 'Medium' | 'Hard' | 'Insane';
+  summary: string;
+  date: string;
+  slug: string;
+}
+
+const { title, difficulty, summary, date, slug } = Astro.props;
+
+const difficultyColors = {
+  Easy: 'bg-green-100 text-green-800',
+  Medium: 'bg-yellow-100 text-yellow-800',
+  Hard: 'bg-red-100 text-red-800',
+  Insane: 'bg-purple-100 text-purple-800',
+};
+---
+
+<article class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-transform hover:scale-[1.02]">
+  <div class="p-6">
+    <div class="flex justify-between items-start mb-4">
+      <h3 class="text-xl font-bold text-gray-900 dark:text-white">{title}</h3>
+      <span class={`px-3 py-1 rounded-full text-sm font-medium ${difficultyColors[difficulty]}`}>
+        {difficulty}
+      </span>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-4">{summary}</p>
+    <div class="flex justify-between items-center">
+      <span class="text-sm text-gray-500 dark:text-gray-400">{date}</span>
+      <a href={`/htb/${slug}`} class="text-primary-600 dark:text-primary-400 hover:underline">
+        Read more →
+      </a>
+    </div>
+  </div>
+</article>
